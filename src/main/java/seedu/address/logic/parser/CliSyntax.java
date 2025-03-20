@@ -20,4 +20,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_ITINERARY = new Prefix("i/");
     public static final Prefix PREFIX_CUSTOMER_NAME = new Prefix("c/");
     public static final Prefix PREFIX_DATE = new Prefix("d/");
+    public static final Prefix PREFIX_REMARK = new Prefix("r/");
 }

@@ -24,31 +24,34 @@ public class Contact {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final Remark remark;
     private final String notes;
 
     /**
      * Every field must be present and not null except for notes.
      */
-    public Contact(Name name, Phone phone, Email email, Address address, Set<Tag> tags, String notes) {
+    public Contact(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Remark remark, String notes) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.remark = remark;
         this.notes = notes;
     }
 
     /**
      * Every field must be present and not null.
      */
-    public Contact(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Contact(Name name, Phone phone, Email email, Address address, Remark remark, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.remark = remark;
         this.notes = "";
     }
 
@@ -65,6 +68,10 @@ public class Contact {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Remark getRemark() { 
+        return remark; 
     }
 
     /**

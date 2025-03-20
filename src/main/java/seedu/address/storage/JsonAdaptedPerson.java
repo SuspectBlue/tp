@@ -15,6 +15,7 @@ import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
 import seedu.address.model.contact.Name;
 import seedu.address.model.contact.Phone;
+import seedu.address.model.contact.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,6 +30,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final String remark;
     private final String notes;
 
     /**
@@ -37,11 +39,12 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("notes") String notes) {
+            @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("remark") String remark, @JsonProperty("notes") String notes) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.remark = remark;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -60,6 +63,7 @@ class JsonAdaptedPerson {
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         notes = source.getNotes();
+        remark = source.getRemark().value;
     }
 
     /**
@@ -104,9 +108,10 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
         }
         final Address modelAddress = new Address(address);
+        final Remark modelRemark = new Remark(remark);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Contact(modelName, modelPhone, modelEmail, modelAddress, modelTags, notes);
+        return new Contact(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelRemark, notes);
     }
 
 }

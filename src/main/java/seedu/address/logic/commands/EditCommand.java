@@ -27,6 +27,7 @@ import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
 import seedu.address.model.contact.Name;
 import seedu.address.model.contact.Phone;
+import seedu.address.model.contact.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -103,8 +104,10 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(contactToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(contactToEdit.getTags());
         String updatedNotes = editPersonDescriptor.getNotes().orElse(contactToEdit.getNotes());
+        Remark updatedRemark = contactToEdit.getRemark();
 
-        return new Contact(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedNotes);
+        return new Contact(updatedName, updatedPhone, updatedEmail, updatedAddress, 
+            updatedTags, updatedRemark, updatedNotes);
     }
 
     @Override
