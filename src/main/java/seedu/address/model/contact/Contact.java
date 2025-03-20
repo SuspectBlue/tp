@@ -70,8 +70,8 @@ public class Contact {
         return address;
     }
 
-    public Remark getRemark() { 
-        return remark; 
+    public Remark getRemark() {
+        return remark;
     }
 
     /**

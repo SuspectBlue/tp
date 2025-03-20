@@ -106,7 +106,7 @@ public class EditCommand extends Command {
         String updatedNotes = editPersonDescriptor.getNotes().orElse(contactToEdit.getNotes());
         Remark updatedRemark = contactToEdit.getRemark();
 
-        return new Contact(updatedName, updatedPhone, updatedEmail, updatedAddress, 
+        return new Contact(updatedName, updatedPhone, updatedEmail, updatedAddress,
             updatedTags, updatedRemark, updatedNotes);
     }
 

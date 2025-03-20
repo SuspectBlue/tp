@@ -38,11 +38,13 @@ public class RemarkCommandTest {
         Contact firstContact = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         Contact editedContact = new PersonBuilder(firstContact).withRemark(REMARK_STUB).build();
 
-        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_PERSON, new Remark(editedContact.getRemark().value));
+        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_PERSON,
+            new Remark(editedContact.getRemark().value));
 
         String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedContact);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), getTypicalTripBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
+            getTypicalTripBook(), new UserPrefs());
         expectedModel.setPerson(firstContact, editedContact);
 
         assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
@@ -58,7 +60,8 @@ public class RemarkCommandTest {
 
         String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS, editedContact);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), getTypicalTripBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
+            getTypicalTripBook(), new UserPrefs());
         expectedModel.setPerson(firstContact, editedContact);
 
         assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
@@ -72,11 +75,13 @@ public class RemarkCommandTest {
         Contact editedContact = new PersonBuilder(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()))
                 .withRemark(REMARK_STUB).build();
 
-        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_PERSON, new Remark(editedContact.getRemark().value));
+        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_PERSON,
+            new Remark(editedContact.getRemark().value));
 
         String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedContact);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), getTypicalTripBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
+            getTypicalTripBook(), new UserPrefs());
         expectedModel.setPerson(firstContact, editedContact);
 
         assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
