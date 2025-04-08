@@ -32,7 +32,7 @@ public class ParserUtil {
 
     /**
      * Parses {@code oneBasedIndex} for a contact into an {@code Index} and returns it. Leading and trailing
-     * whitespaces will be trimmed.
+     * whitespaces will be trimmed away.
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseContactIndex(String oneBasedIndex) throws ParseException {
